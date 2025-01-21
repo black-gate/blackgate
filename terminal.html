@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Terminal</title>
+    <link rel="icon" href="assets/images/Icons/terminal.png" type="img/png">
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <div id="background-orb"></div>
+    <div class="glow-effect"></div>
+
+    <div id="terminal-page">
+        <div id="hacking-container">
+            <div id="hacking-messages"></div>
+        </div>
+    
+    <div id="wallet-section" class="hidden">
+        <div class="matrix-bg"></div>
+        <h2 class="glitch-title" data-text="Network Breached...">Network Breached...</h2>
+        <p>Enter  wallet Address </p>
+        <select>
+            <option value="btc">BTC</option>
+            <option value="usdt">USDT(BEP-20)</option>
+            <option value="solana">Solana</option>
+            <option value="usdt">USDT(TRC-20)</option>
+        </select>
+        <input type="text"id ="wallet-id" placeholder="Inject Target Wallet Address"  
+        autocomplete="off" required minlength="10" maxlength="50" />
+        <button id="submit-wallet" type="button" onclick="submitWallet()">Deploy Credentials</button>
+
+    </div>
+    </div>
+    <div class="particles" style="left: 100px; top: 200px;"></div>
+    <div class="particles" style="left: 300px; top: 150px;"></div>
+    <div class="particles" style="left: 500px; top: 300px;"></div>
+    <div class="particles" style="left: 700px; top: 500px;"></div>
+    <div class="particles" style="left: 900px; top: 100px;"></div>
+    
+    
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const hackingMessages = [
+                "##################",
+                "",
+                "Initializing Brute Force Algorithm...",
+                "Bypassing Encyrption layers...",
+                "Injecting Payload into the target node...",
+                "",
+                "Decrypting Credentials...",
+                "Accessing Wallet database...",
+                "",
+                "Extraction Complete!",
+                "",
+                "CONNECTED TO THE DARK WEB!",
+            ];
+            const hackingContainer = document.getElementById('hacking-messages');
+            const walletSection = document.getElementById('wallet-section');
+            
+            let messageIndex = 0;
+
+            function displayMessages() {
+                if (messageIndex < hackingMessages.length) {
+                    const p = document.createElement('p');
+                    p.textContent = hackingMessages[messageIndex];
+                    hackingContainer.appendChild(p);
+
+                    setTimeout(() => {
+                        messageIndex++;
+                        displayMessages();
+                    }, 1500);
+                } else {
+                    triggerGlitchAndShowWallet();
+                }
+            }
+
+            function triggerGlitchAndShowWallet() {
+                hackingContainer.style.animation = "glitch 0.5s";
+                setTimeout(() => {
+                    hackingContainer.style.display = "none";
+
+                    walletSection.style.display = "block";
+                }, 500);
+            }
+            displayMessages();
+        });
+
+        
+        
+        function submitWallet() {
+            const walletId  = document.getElementById("wallet-id").value;
+
+            if ( walletId.length < 10 || walletId.length > 50) {
+                alert("Error: Inavlid Wallet address");
+                return;
+            }
+
+            window.location.href = "cipherOps.html";
+        }
+
+        window.addEventListener('load', () => {
+            if (performance.navigation.type === 1) {
+                window.location.href = "index.html";
+            }
+        });
+        if (localStorage.getItem('lockU')) {
+            window.location.href = '404.html';
+            } else {
+            localStorage.setItem('lockU', 'true');
+            }
+
+
+            window.history.pushState(null, '', window.location.href);
+            window.onpopstate = function () {
+            window.location.href = '404.html'
+            };
+
+        document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+        alert("Prohibited!!");
+    });
+        // if (sessionStorage.getItem('visited')) {
+        //     window.location.href = '404.html';
+        // } else {
+        //     sessionStorage.setItem('visited', 'true');
+        // }
+
+
+        // window.history.pushState(null, '', window.location.href);
+        // window.onpopstate = function () {
+        //     window.location.href = '404.html'
+        // };
+
+
+    </script>
+
+</body>
+</html>

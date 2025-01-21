@@ -1,0 +1,137 @@
+<!-- DEVELOPED BY BUVIM TECHNOLOGIES -->
+<!-- COPYRIGHT 2025 -->
+<!-- ALL RIGHTS RESERVED -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>BlackGate</title>
+    <link rel="icon" href="assets/images/Icons/dark-web.png" type="img/png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Shake animation */
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+
+        .error {
+            border: 2px solid red;
+            animation: shake 0.5s ease;
+        }
+
+        #error-message {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 10px;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <h1 class="typing-container">
+            <span id="typing-text"></span>
+        </h1>
+        <h1 class="glitch">Shadow Network Access</h1>
+        <p>Validate Your Credentials To Initiate Access</p>
+        <form id="myForm">
+            <input id="decryption-field" type="text" placeholder="Decrypting Identity" autocomplete="off" required>
+            <input id="encryption-key-field" type="password" placeholder="Encryption Key (Password)" autocomplete="off" required>
+            <input id="access-node-field" type="email" placeholder="Access Node (Email)" autocomplete="off" required>
+            <button id="decrypt-access-btn" type="submit">Decrypt Access</button>
+            <p id="error-message">ACCESS DENIED!!!</p>
+        </form>
+    </div>
+
+    <div id="custom-alert" class="custom-alert">
+        <div class="alert-box">
+            <img src="assets/images/Icons/warning.png" alt="Error" style="width: 30px;">
+            <p id="alert-message">Access-denied! All Credentials must be provided to secure access!</p>
+            <button id="close-alert">Close</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const text = "Engaging Gateway...";
+            const typingText = document.getElementById("typing-text");
+            let i = 0;
+
+            function type() {
+                if (i < text.length) {
+                    typingText.textContent += text.charAt(i);
+                    i++; 
+                    setTimeout(type, 220);
+                } else {
+                    setTimeout(reset, 1500);
+                }
+            }
+            function reset() {
+                typingText.textContent = "";
+                i = 0;
+                type();
+            }
+            type();
+        });
+
+        // Predefined strong credentials
+        const validUsername = "@D3CRY8TO-4XIS477#";
+        const validPassword = "R34p3R#F1R3-K3Y!";
+        const validEmail = "h4ck3r_n0d3@darkmail.com";
+
+        document.getElementById('decrypt-access-btn').addEventListener('click', function (event) {
+            event.preventDefault();
+
+            const decryptionField = document.getElementById('decryption-field');
+            const encryptionKeyField = document.getElementById('encryption-key-field');
+            const accessNodeField = document.getElementById('access-node-field');
+            const errorMessage = document.getElementById('error-message');
+
+            if (
+                decryptionField.value !== validUsername ||
+                encryptionKeyField.value !== validPassword ||
+                accessNodeField.value !== validEmail
+            ) {
+                decryptionField.classList.add('error');
+                encryptionKeyField.classList.add('error');
+                accessNodeField.classList.add('error');
+                errorMessage.style.display = 'block';
+
+                setTimeout(() => {
+                    decryptionField.classList.remove('error');
+                    encryptionKeyField.classList.remove('error');
+                    accessNodeField.classList.remove('error');
+                    errorMessage.style.display = 'none';
+                }, 1000); // Remove red border after shake
+            } else {
+                sessionStorage.setItem('accessGranted', true);
+                window.location.href = "loading.html";
+            }
+        });
+
+        function showCustomAlert(message) {
+            const alertBox = document.getElementById('custom-alert');
+            const alertMessage = document.getElementById('alert-message');
+            alertMessage.textContent = message;
+            alertBox.style.display = 'flex';
+        }
+
+        document.getElementById('close-alert').addEventListener('click', function() {
+            document.getElementById('custom-alert').style.display = 'none';
+        });
+
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+            alert("Prohibited!!");
+        });
+        
+        document.getElementById("myForm").reset();
+    </script>
+</body>
+</html>

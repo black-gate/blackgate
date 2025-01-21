@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <title>[ERROR] 404</title>
+    <link rel="icon" href="assets/images/Icons/download.png" type="img/png">
+
+
+    <style>
+        body{
+            background-color: black;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 20px;
+            color: #00ff00;
+        }
+        @media (max-width: 768px) {
+        
+        }
+        .container{
+            max-width: 800px;
+            margin: 100px auto;
+            text-align: center;
+            letter-spacing: 2px;
+            border: #222 groove 1.5px;
+            padding: 25px;
+            box-shadow: 0 0 100px rgba(23, 23, 66, 0.4), 0 0 50px rgba(23, 23, 66, 0.4);
+            animation: Fadein 2.5s ease-in-out;
+
+        }
+        .error{
+            color: #ff0000;
+            font-weight: bold;
+            font-size: 1.5rem;
+            border-bottom: 1px groove wheat;
+            
+        }
+        a{
+            color: #ff0000;
+            text-decoration: underline;
+        }
+        a:hover {
+            color: #ffffff;
+        }
+        @keyframes Fadein {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="assets/images/Icons/download.png"alt="[ERROR] 404" style="width: 50px;
+        box-shadow: 0 0 100px rgba(23, 23, 66, 0.4), 0 0 50px rgba(23, 23, 66, 0.4);
+        margin-bottom: -20px; border-radius: 22px;">
+        <p class="error">[ERROR] 404: INSTRUCTION VIOLATION DETECTED</p>
+
+        <p>[WARNING].
+        </p>
+    
+        <p> Your actions have triggered a system-level violation....
+        </p>
+        <br>
+        <p style="text-shadow: 3px 3px 0 black, 1px 1px 0 blue, 1px 1px 0 #380f0b;
+        ">><em>Device Info  logged and monitored for futher review...</em></p>
+    
+        <p style="text-shadow: 3px 3px 0 black, 1px 1px 0 blue, 1px 1px 0 #380f0b;">
+            ><em>Device Compromise and destruction Imminent....</em></p>
+        <br><br>
+        <p style="border-top: 1px groove wheat; padding: 10px;
+        border-bottom: 1px groove wheat;"><a href="https://t.me/Dark_titanBOT">Contact Support</a></p>
+    </div>
+    
+</body>
+<script>
+//     if (sessionStorage.getItem('visited')) {
+//     window.location.href = '404.html';
+// } else {
+//     sessionStorage.setItem('visited', 'true');
+// }
+
+
+function trapUser() {
+    history.pushState(null, null, location.href);
+}
+window.addEventListener('popstate', function () {
+    trapUser();
+});
+trapUser();
+window.onbeforeunload = function () {
+   
+};
+document.addEventListener("DOMContentLoaded", function () {
+  if (localStorage.getItem("keepOF1")) {
+    window.location.href = "404.html";
+  } else {
+    localStorage.setItem("keepOF1", "true");
+  }
+
+  window.history.pushState(null, "", window.location.href);
+  window.onpopstate = function () {
+    window.location.href = "404.html";
+  };
+});
+
+
+document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+    alert("Prohibited!!");
+});
+</script>
+</html>
+
+
+

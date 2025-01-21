@@ -1,0 +1,86 @@
+body{
+    background-color: #000000;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    overflow: hidden;
+    height: 100%;
+    margin: 0;
+}
+#warning-message{
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+}
+/* #random-text-container{
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    font-size: 16px;
+    line-height: 1.2;
+    white-space: pre-wrap;
+    overflow-y: auto;
+    height: 80%;
+    color: #00ff00;
+    opacity: 0.8; */
+
+#loading-container{
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 600px;
+    justify-content: center;
+    align-items: center;
+
+}
+/* #loading-bar{
+    background-color: #555;
+    height: 20px;
+    width: 80%;
+    border: 2px solid #00ff00;
+    position: relative;
+    background-color: black;
+} */
+#laoding-fill {
+    background-color: #00ff00;
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s;
+}
+#loading-text {
+    
+    color: #00ff00;
+    font-size: 25px;
+    
+
+}
+#encrypted-text {
+    font-size: 14px;
+    line-height: 1.5;
+    width: 100vw;
+    height: 100vw;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    overflow: hidden;
+    color: #00ff00;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+#warning-message{
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    color: red;
+}

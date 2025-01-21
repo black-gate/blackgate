@@ -1,0 +1,135 @@
+<!--DEVELOPED BY BUVIM TECHNOLOGIES-->
+<!--COPYRIGHT 2025-->
+<!--ALL RIGHTS RESERVED-->
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable = no">
+    <title>Decrypting...</title>
+    <link rel="stylesheet" href="styles3.css">
+    <link rel="icon" href="assets/images/Icons/padlock.png" type="img/png">
+</head>
+<body>
+    
+    <div id="warning-message">
+        <p><strong>WARNING: Do not refresh page!</strong></p>
+    </div>
+    <br><br>
+    <div id="loading-container">
+        <!-- <div id="loading-bar"> -->
+            <div id="loading-fill"></div>
+        </div>
+        <p id="loading-text">Decrypting...0%</p>
+        <pre id="encryted-text"></pre>
+    
+    </div>
+  
+    
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function (){
+        if (sessionStorage.getItem('accessGranted') !=='true') {
+            window.location.href = "index.html";
+        } else {
+            // sessionStorage.setItem('acessGranted', true);
+            startLoading();
+            generateRandomText();
+        }
+    });
+        function startLoading() {
+            let progress = 0;
+            const loadingFill = document.getElementById('loading-fill');
+            const loadingText = document.getElementById('loading-text');
+
+            let interval = setInterval(function () {
+                progress += Math.floor(Math.random() * 5) + 1;
+
+                loadingFill.style.width =`${progress}%`;
+                loadingText.textContent = `Decrypting...${progress}%`;
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(function() {
+                        window.location.href="terminal.html";
+                    }, 500);
+                }
+            },   250);
+        }
+        function generateRandomText() 
+        {
+            const encryptedTextContainer = document.getElementById('encryted-text');
+            let chars = "ABCDEFGHIJKLMNOPQRSTabcdefghijklmnopqrstuvwxyz!@#$%^&*()_-+=?/><,.";  
+            let randomText = '';
+
+            setInterval(function () {
+                for (let i = 0; i<50; i++) {
+                    randomText +=chars.charAt(Math.floor(Math.random() * chars.length));
+                }
+                encryptedTextContainer.textContent += randomText + '\n';
+                randomText = ''; 
+            }, 200);
+        }
+                
+        if (! sessionStorage.getItem('accessGranted')) {
+            window.location.href = 'index.html';
+        }
+        window.addEventListener('beforeunload', function (){
+            sessionStorage.removeItem('accessGranted');
+        });
+        document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+    alert("Prohibited!!");
+});
+        // }
+        //     function generateRandomText() {
+        //         const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxzy!@#$%^&*()_+=-';
+
+        //         let randomText = '';
+        //         for (let i = 0; i < 100; 
+        //         i++) {
+        //             randomText += chars.charAt(Math.floor(Math.random() * chars.length));
+        //         }
+        //         return randomText;
+        //     }
+
+        //     function displayRandomText() {
+        //         const randomText = generateRandomText();
+        //         const p = document.createElement('p');
+        //         p.textContent = randomText;
+        //         randomTextContainer.appendChild(p);
+
+        //         if (randomTextContainer.scrollHeight > window.innerHeight) {
+        //             randomTextContainer.scrollTop = randomTextContainer.scrollHeight;
+        //         }
+        //     }
+
+        //     function loadingProcess() {
+        //         let interval = setInterval(function () {
+        //             if (progress >= 100)
+        //             {
+        //                 clearInterval(interval);
+        //                 window.location.href ="terminal.html";
+        //             } else {
+        //                 progress += Math.floor(Math.random() * 5) + 1;
+
+        //                 loadingFill.style.width = `${progress}%`
+        //                 loadingText.textContent = `Decrypting...${progress}`;
+
+        //                 displayRandomText();
+        //             }
+
+        //             }, 100);
+        //         }
+        //         loadingProcess();
+        //     });
+        //     window.onbeforeunload = function (){
+        //         return 'WARNING: Do not refresh page';
+        //     };
+        // });
+        
+    </script>
+</body>
+</html>

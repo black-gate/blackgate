@@ -1,0 +1,261 @@
+body {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 01), inset 0px 4px 8px rgba(255, 255, 255, 0.3);
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #121212;
+    color: #00ff88;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('assets/videos/InShot_20241217_003525083.gif');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+    animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.signup-container{
+    background: rgba(0, 0, 0, 0.875);
+    padding: 30px;
+    border: 1px solid #00ff88;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #00ff88;
+    width: 375px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+.signup-container h1{
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #00ff88;
+}
+.signup-container p{
+    font-size: 0.9em;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+.signup-container input{
+    width:90%;
+    padding: 10px;
+    margin: 10px 0;
+    background: black;
+    border: 1px solid #00ff88;
+    color: #00ff88;
+    font-size: 1rem;
+    border-radius: 5px;
+    letter-spacing: 1.5px;
+    font-family: 'Orbitron';
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+@font-face {
+    font-family: 'Orbitron';
+    src: url('assets/fonts/Orbitron-VariableFont_wght.ttf') format('truetype');
+}
+.signup-container input:focus{
+    outline: none;
+    box-shadow: 0 0 10px #00ff88;
+}
+.signup-container button{
+    width: 100%;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background: #00ff88;
+    color: black;
+    font-weight: bold;
+    border: 2px solid rgb(199, 192, 192);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.25em;
+    box-shadow: 0 0 10px #00ff88;
+    animation: pulse 1.8s infinite;
+    font-family: 'Courier New';
+    font-weight: bold;
+}
+.signup-container button:active{
+    background-color: #111;
+    transform: scale(0.75);
+    box-shadow: 0 0 20px 1px #00ff00;
+}
+@media (max-width: 768px) {
+    .signup-container {
+        width: 90%;
+        max-width: 400px;
+        overflow: hidden;
+        margin: 0 auto;
+        margin-bottom: 20%;
+    }
+    .signup-container input{
+        font-size: 15.5px;
+    }
+    #typing-text{
+        font-size: 28px;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+}
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 5px #00ff00;
+    }
+    50% {
+        box-shadow: 0 0 20px #00ff00;
+    }
+    100% {
+        box-shadow: 0 0 5px #00ff00;
+    }
+}
+.signup-container button:hover{
+    background: black;
+    color: #00ff88;
+    border: 1px solid white;
+    transition: 0.5s ease;
+}
+
+ .typing-container{
+    /* font-family: "Orbitron", sans-serif; */
+    color: #ff0033;
+    font-size: 0.1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    /* border-right: 2px solid #ff0033; */
+    animation: blink-cursor 1s step-end infinite;
+    width: 100%;
+ }
+ @keyframes blink-cursor {
+    from {
+        border-right-color:#ff0033;
+    }
+    to{
+        border-right-color: transparent;
+    }
+ }
+
+#typing-text::after{
+    content: "|";
+    display: inline-block;
+    animation: blink 0.7s steps(2, start) infinite;
+}
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+#hacking-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: none;
+    z-index: 1000;
+    padding: 50px;
+}
+#terminal-screen{
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: black;
+    color: green;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+}
+#hacking-messages p{
+    margin: 0;
+}
+#wallet-secton{
+    display: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    background: #111;
+    color: white;
+    border: 2px solid #00ff00;
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
+    text-align: center;
+}
+#wallet-section h2{
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #00ff00;
+    text-transform: uppercase;
+}
+
+.custom-alert{
+    display: none;
+    position: fixed;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    color:rgb(214, 31, 31);
+    font-family: 'Courier New', monospace;
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+}
+.alert-box{
+    background: rgba(0, 0, 0, 0.65);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    width: 80%;
+    max-width: 400px;
+    border:2px dotted dimgray;
+    /* border-right: 2px solid #00ff00;
+    border-left: 2px solid #00ff00;
+    border-top:1px solid white ;
+    border-bottom: 1px solid white; */
+    animation: slideIn 4s ease-in-out;
+    
+}
+@keyframes slideIn{
+    100% {
+        transform: translateY(-100);
+        opacity: 1;
+    }
+}
+#close-alert{
+    background: none;
+    color: #00ff00;
+    border: none;
+    padding: 10px;
+    font-size: 1.6rem;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+   transition: transform 0.3s ease, color 0.2s ease;
+}
+#close-alert:hover{
+   color: #ff0000;
+   transform: rotate(180deg);
+}
+.alert-box p{
+    font-size: 1.2rem;
+    margin: 10px 0;
+    letter-spacing: 1px;
+}
+#signup-container {
+    position: relative;
+}
